@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 mt-5 offset-md-3">
+        <h2>To Do List</h2>
+        <input type="text" placeholder="Add New List" id="input">
+        <button onclick="addList()" id="button">Add</button>
+        <ul class="list-group mt-5" id="ul-list">
+            <li class="list-group-item">
+                Eat <span class="icon" onclick="removeMe(this)">x</span>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+
+   
+    <script src="jquery.js"></script>
+    <script src="popper.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script>
+        function addList(){
+            var input = document.getElementById("input");
+            console.log(input.value);
+
+            var list = document.createElement("li");
+            list.setAttribute("class","list-group-item");
+            list.append(input.value);
+
+            var ul = document.getElementById("ul-list");
+            ul.append(list);
+
+            var spanElement = document.createElement("span");
+            spanElement.setAttribute("class","icon");
+            spanElement.append("x");
+
+            list.append(spanElement);
+        }
+        
+        function removeMe(e){
+            e.parentNode.remove();
+        }
+    </script>
+</body>
+</html>
