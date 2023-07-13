@@ -13,7 +13,9 @@
         <h2>To Do List</h2>
         <input type="text" placeholder="Add New List" id="input">
         <button onclick="addList()" id="button">Add</button>
-        <ul class="list-group mt-5" id="ul-list">
+
+        <h4 class="h4 mt-5">You Have To Do....</h4>
+        <ul class="list-group" id="ul-list">
             <li class="list-group-item">
                 Eat <span class="icon" onclick="removeMe(this)">x</span>
             </li>
@@ -21,11 +23,11 @@
         </div>
     </div>
 
-
-   
     <script src="jquery.js"></script>
     <script src="popper.js"></script>
     <script src="bootstrap.min.js"></script>
+
+<!-- in line js  -->
 
     <script>
         function addList(){
@@ -42,8 +44,9 @@
             var spanElement = document.createElement("span");
             spanElement.setAttribute("class","icon");
             spanElement.append("x");
-
+            spanElement.setAttribute("onclick","removeMe(this)");
             list.append(spanElement);
+            input.value.remove();
         }
         
         function removeMe(e){
